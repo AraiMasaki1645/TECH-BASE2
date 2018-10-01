@@ -14,7 +14,7 @@
 	
 
 	if(empty($name) && empty($comment) && empty($sakujo) && !empty($hensyu) && empty($hensyuno) && empty($pass1) && empty($pass2) && !empty($pass3)){
-	//編集表示機能(未完了)select,fetch文でテーブル内のデータを取得し$data[0],[1],[2]とする		
+	//編集表示機能		
 		$file2 = file($filename2);
 		foreach($file2 as $value){
 			$explode = explode("<>",$value);
@@ -69,7 +69,7 @@
 	$pdo = new PDO($dsn,$user,$password);
 	//データベースへ接続
 if(!empty($name) && !empty($comment) && empty($sakujo) && empty($hensyu) && empty($hensyuno) && !empty($pass1) && empty($pass2) && empty($pass3)){
-	//投稿機能(完了)
+	//投稿機能
 	$file2 = file($filename2);
 	
 	$count2 = count($file2);
@@ -95,7 +95,7 @@ if(!empty($name) && !empty($comment) && empty($sakujo) && empty($hensyu) && empt
 		
 		
 	}elseif(empty($name) && empty($comment) && !empty($sakujo) && empty($hensyu) && empty($hensyuno) && empty($pass1) && !empty($pass2) && empty($pass3)){
-	//削除機能(おそらく完了)
+	//削除機能
 		$file2 = file($filename2);
 		foreach($file2 as $value){
 			$ex = explode("<>",$value);		
@@ -126,7 +126,7 @@ if(!empty($name) && !empty($comment) && empty($sakujo) && empty($hensyu) && empt
 				}
 		}
 	}elseif(!empty($name) && !empty($comment) && empty($sakujo) && empty($hensyu) && !empty($hensyuno) && !empty($pass1) && empty($pass2) && empty($pass3)){
-	//編集機能(未完了)
+	//編集機能
 		$id = $hensyuno;
 		$sql = "update Masaki set name='$name',comment='$comment'where id = $id";
 		$result = $pdo -> query($sql);
